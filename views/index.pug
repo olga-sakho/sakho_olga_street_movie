@@ -1,0 +1,44 @@
+html
+  head
+    title Street_Movie
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width")
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/main.css')
+  body
+    block content
+        .container-sm
+        .row.justify-content-center.align-items-center.full-height
+          .col.col-md-6.col-lg-4
+            form(action="/thanks" name='myForm' method="post")
+              .mb-3
+                label.form-label(for='name') Name
+                input#name.form-control(type='text' name='name' required)
+                
+              .mb-3
+                label.form-label(for='phone') Phone
+                input#phone.form-control(type='tel' name='phone' required)
+                
+              .mb-3
+                label.form-label(for='email') Email
+                input#email.form-control(type='email' aria-describedby='emailHelp' name='email' required)
+                #emailHelp.form-text We&apos;ll never share your email with anyone else.
+                
+              .mb-3
+                label.form-label(for='title') Title
+                input#title.form-control(type='text' name='title' required)
+                
+              .mb-3
+                label.form-label(for='date') Date
+                input#date.form-control(type='date' name='date' required)
+                
+
+              .mb-3.form-check
+                input#check.form-check-input(type='checkbox' name='aware' required) 
+                label.form-check-label(for='check') С правилами ознакомлен(а)
+              button.btn.btn-primary(type='submit') 
+                | Submit 
+    
+            
+        
+            
