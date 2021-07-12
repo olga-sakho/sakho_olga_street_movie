@@ -10,7 +10,7 @@ html
         .container-sm
         .row.justify-content-center.align-items-center.full-height
           .col.col-md-6.col-lg-4
-            form(action="/thanks" name='myForm' method="post")
+            form(action="/tickets" name='myForm' method="post")
               .mb-3
                 label.form-label(for='name') Name
                 input#name.form-control(type='text' name='name' required)
@@ -35,7 +35,7 @@ html
 
               .mb-3.form-check
                 input#check.form-check-input(type='checkbox' name='aware' required) 
-                label.form-check-label(for='check') С правилами ознакомлен(а)
+                label.form-check-label(for='check') С #[a(href='/rules_and_conditions') правилами] ознакомлен(а)
               button.btn.btn-primary(type='submit') 
                 | Submit 
     

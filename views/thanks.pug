@@ -1,13 +1,14 @@
 extends index.pug
 
 block content
-  .container
-    //h1= message
-    //p= JSON.stringify(data)
-    h2 Благодарим за регистрацию, #{data.name}!
-    p Билет отправлен на Вашу почту: #[strong #{data.email}].
-    h2=diffDays
-  block foot
-    .footer
+    a.sliding-button(href='') На главную
+    .container
+      //h1= message
+      //p= JSON.stringify(data)
+      h2 Благодарим за регистрацию, #{data.name}!
+      p Билет отправлен на Вашу почту: #[strong #{data.email}].
+      h2=diffDays
+    block foot
+      .footer
         
     
