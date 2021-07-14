@@ -23,22 +23,46 @@ html
                 label.form-label(for='email') Email
                 input#email.form-control(type='email' aria-describedby='emailHelp' name='email' required)
                 #emailHelp.form-text We&apos;ll never share your email with anyone else.
-                
-              .mb-3
-                label.form-label(for='title') Title
-                input#title.form-control(type='text' name='title' required)
-                
+
               .mb-3
                 label.form-label(for='date') Date
                 input#date.form-control(type='date' name='date' required)
                 
+              .mb-3
+                label.form-label(for='title') Title
+                //input#title.form-control(type='text' name='title' required)
+                .col-xs-12
+                    select#title.select.form-control.input-lg(name='title' required)
+                      option(value='0' data-filter='' selected) -- Выбрать фильм --
+                      option(value='Черная вдова' data-filter='chornaya_vdova') Черная вдова
+                      option(value='Лука' data-filter='luka') Лука
+                      option(value='Судная ночь навсегда' data-filter='sudnaya noch') Судная ночь навсегда
+                      option(value='Телохранитель жены киллера' data-filter='telohranitel') Телохранитель жены киллера
+                      option(value='Ледовый дрифт' data-filter='ledovyi_drift') Ледовый дрифт
+                      option(value='Мы есть. Мы рядом' data-filter='mu_ryadom') Мы есть. Мы рядом
+                
+
+              .mb-3
+                label.form-label(for='time') Time
+                //input#time.form-control(type='time' name='time' required)
+                .col-xs-12
+                    select#time.select.form-control.input-lg(name='time' required)
+                      option(value='0' data-time ='' selected) -- Выбрать время --
+                      option(value='11:20' data-time='luka') 11:20
+                      option(value='13:40' data-time='luka chornaya_vdova') 13:40
+                      option(value='16:00' data-time='chornaya_vdova') 16:00
+                      option(value='18:30' data-time='chornaya_vdova telohranitel ledovyi_drift sudnaya noch') 18:30
+                      option(value='20:10' data-time='telohranitel ledovyi_drift sudnaya noch') 20:10
+                      option(value='22:15' data-time='sudnaya noch mu_ryadom') 22:15
+                
 
               .mb-3.form-check
                 input#check.form-check-input(type='checkbox' name='aware' required) 
-                label.form-check-label(for='check') С #[a(href='/rules_and_conditions') правилами] ознакомлен(а)
+                label.form-check-label(for='check') С #[a(href='/rules_and_conditions' target='_blank') правилами] ознакомлен(а)
               button.btn.btn-primary(type='submit') 
                 | Submit 
     
-            
-        
+          script
+            include script_filter.js
+
             

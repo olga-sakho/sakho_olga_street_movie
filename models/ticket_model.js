@@ -18,6 +18,9 @@ const mongoose = require('mongoose');
    			date: {
     			type: Date,
    			},
+   			time: {
+    			type: String,
+   			},
     
  			},{ timestamps: { createdAt: 'created_at' }});
 

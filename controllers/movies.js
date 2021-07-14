@@ -2,7 +2,7 @@ const Tickets = require('../models/ticket_model.js');
 
 module.exports = {
 	frontPage: function (req, res){
-		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date});
+		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date, time: req.body.time});
 		film1.save()
   		Tickets.find({}).sort({ 'created_at' : -1}).then(function (tickets) {
       	res.send(tickets);
@@ -10,7 +10,7 @@ module.exports = {
   	},
 
   	thankList: function (req, res){
-  		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date});
+  		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date, time: req.body.time});
   		console.log(film1)
   		film1.save()
     
@@ -21,7 +21,8 @@ module.exports = {
       		'phone',
       		'email',
       		'title',
-      		'date'
+      		'date',
+      		'time'
   		]
   		var data = req.body
   		Object.keys(data).forEach(function(key) {
