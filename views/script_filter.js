@@ -1,6 +1,7 @@
 $(document).ready(function () { 
  //$('#title').click(function () { 
   $('#title').on('change', function () { 
+    $('#time').val('0')
     var selected = $("select option:selected")
     var titleValue = $(selected).attr('data-filter')
     var timeObj = $("[data-time]"); 
