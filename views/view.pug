@@ -1,0 +1,10 @@
+extends thanks.pug
+
+block content
+    a.sliding-button(href='http://localhost:3010') На главную
+    .container
+      //h1= message
+      //p= JSON.stringify(data)
+      h2 Ваш номер билета : #{data._id}
+      p Сеанс на фильм #{data.title} состоится #{data.date} в #{data.time}.
+      

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var path = require('path');
 
+
 app.use(bodyParser.urlencoded({extended: true }));
 
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ router(app)
 
 
 app.use(express.static('public'));
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

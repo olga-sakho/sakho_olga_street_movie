@@ -8,6 +8,17 @@ block content
       h2 Благодарим за регистрацию, #{data.name}!
       p Билет отправлен на Вашу почту: #[strong #{data.email}].
       h2=diffDays
+
+          form(action="/view" method="post")
+                  .mb-3
+                    input#view.form-control(type='hidden')
+                    button.btn.btn-primary(type='submit') Посмотреть свой билет
+
+          form(action="/delete" method="post")          
+                  .mb-3
+                    input#deleteTicket.form-control(type='hidden' )
+                    button.btn.btn-primary(type='submit') Удалить свой билет
+                
     block foot
       .footer
         

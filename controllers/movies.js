@@ -1,9 +1,9 @@
 const Tickets = require('../models/ticket_model.js');
+const fs = require("fs");
 
 module.exports = {
 	frontPage: function (req, res){
 		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date, time: req.body.time});
-		film1.save()
   		Tickets.find({}).sort({ 'created_at' : -1}).then(function (tickets) {
       	res.send(tickets);
   		});
@@ -13,7 +13,7 @@ module.exports = {
   		const film1 = new Tickets({ name: req.body.name, phone: req.body.phone, email: req.body.email, title: req.body.title, date: req.body.date, time: req.body.time});
   		console.log(film1)
   		film1.save()
-    
+    	
     
   		var errors = []
   		var requiresFields = [
@@ -44,6 +44,29 @@ module.exports = {
   		console.log(diffTime + " milliseconds");
   		console.log(diffDays + " days");*/
   		res.render('thanks', { title: 'thanks', message: 'Thank you for registration!', data:req.body});
-	}
+  		fs.appendFileSync("list.txt", req.body.name + " " + req.body.phone + " " + req.body.email + " " + req.body.date+ " " + req.body.title+ " " + req.body.time + "\n");
+	},
 
+	viewTicket: function(req, res){
+  		console.log(req.body.name)
+		Tickets.findOne({_id: req.params.id}, null, {}, function(err, ticket){
+	      res.render('view', {data:req.body})
+	    })
+	    /*Tickets.findOne({}, [], { $orderby : { 'updatedAt' : -1 } }, function(err, post) {
+	    	console.log(req.body.name)
+  			res.render('view', { tickets: req.body })
+		})*/
+	},
+		
+
+  	deleteTicket: function(req, res){
+	    Tickets.deleteMany(req.body.name, {sort: {createdAt: -1}}, function(err){
+	        if (err) {
+	            console.log(err)
+	        }
+	        else {
+	           return res.render('delete');
+	        }
+		});    
+	},
 }
